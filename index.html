@@ -142,7 +142,7 @@
     </template>
 
     <script type="module"> // Usa import
-        import { CreateWebWorkerMLCEngine } from "https://esm.run/@mlc-ai/web-llm"
+        import { CreateMLCEngine  } from "https://esm.run/@mlc-ai/web-llm"
         //Mejor modelo es llama
         const $ = el => document.querySelector(el)
         // el $ indica que es un elemento del DOM
@@ -155,9 +155,8 @@
         const $info =$('small')
         let messages =[]
 
-        const SELECETEDMODEL = "gemma-2b-it-q4f16_1-MLC"
-        const engine = await CreateWebWorkerMLCEngine(
-            new Worker('worker.js',{type:'module'}),
+        const SELECETEDMODEL = "Phi-3-mini-4k-instruct-q4f32_1-MLC-1k"
+        const engine = await CreateMLCEngine (
             SELECETEDMODEL,
             {
                 initProgressCallback: (info)=>{
